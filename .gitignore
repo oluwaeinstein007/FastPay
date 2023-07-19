@@ -1,4 +1,4 @@
-
+# Laravel-specific files
 .env
 .env.example
 *.example
