@@ -1,8 +1,30 @@
-
+# Laravel-specific files
 .env
-.env.example
-*.example
-.env.example
-node_modules
-vendor
-*.DS_Store
+.env.*
+composer.lock
+vendor/
+node_modules/
+public/storage
+public/hot
+/storage/*.key
+/storage/debugbar/
+Homestead.json
+Homestead.yaml
+npm-debug.log
+
+# IDE/Editor-specific files
+.idea/
+*.sublime-workspace
+*.sublime-project
+.vscode/
+*.swp
+*.swo
+*.swn
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Application-specific files
+/public/uploads/
+/public/files/
