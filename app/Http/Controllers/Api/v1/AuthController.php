@@ -21,7 +21,10 @@ class AuthController extends Controller
     {
         $attr =Validator::make($request->all(), [
             'email' => 'required|string|email|unique:users,email',
-            'password' => 'required|string|min:6|confirmed'
+            'password' => 'required|string|min:6|confirmed',
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'phone_number' => 'required|string',
         ]);
 
         // if there is errors  with the validation, return the errors
@@ -37,6 +40,7 @@ class AuthController extends Controller
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
+            'phone_number' => $request->phone_number,
             'user_role_id' => 3,
         ]);
 
@@ -149,7 +153,10 @@ class AuthController extends Controller
     {
         $attr =Validator::make($request->all(), [
             'email' => 'required|string|email|unique:users,email',
-            'password' => 'required|string|min:6|confirmed'
+            'password' => 'required|string|min:6|confirmed',
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'phone_number' => 'required|string',
         ]);
 
         // if there is errors  with the validation, return the errors
@@ -165,6 +172,7 @@ class AuthController extends Controller
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
+            'phone_number' => $request->phone_number,
             'user_role_id' => 1,
         ]);
 
@@ -182,7 +190,11 @@ class AuthController extends Controller
     public function createAdminUser(Request $request){
         $attr =Validator::make($request->all(), [
             'email' => 'required|string|email|unique:users,email',
-            'password' => 'required|string|min:6|confirmed'
+            'password' => 'required|string|min:6|confirmed',
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'phone_number' => 'required|string',
+            'role' => 'required|integer',
         ]);
 
         // if there is errors  with the validation, return the errors
@@ -198,6 +210,7 @@ class AuthController extends Controller
             'first_name' => $request->first_name,
             'last_name' => $request->last_name,
             'email' => $request->email,
+            'phone_number' => $request->phone_number,
             'user_role_id' => $request->role,
         ]);
 

@@ -15,7 +15,7 @@ class SuperAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if ($request->user() && $request->user()->user_role_id === 1) {
+        if ($request->user() && $request->user()->user_role_id === 1 && $request->user()->is_suspended === false) {
             return $next($request);
         }
 

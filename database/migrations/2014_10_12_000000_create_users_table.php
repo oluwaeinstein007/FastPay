@@ -16,12 +16,14 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
+            $table->string('phone_number')->nullable();
             // $table->foreignId('user_role_id')->constrained('user_roles');
             $table->tinyInteger('user_role_id')->default(3);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('social_type')->nullable();
             $table->boolean('is_social')->default(0);
+            $table->boolean('is_suspended')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

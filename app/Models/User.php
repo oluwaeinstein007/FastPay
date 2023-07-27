@@ -21,9 +21,11 @@ class User extends Authenticatable
         'first_name',
         'last_name',
         'email',
+        'phone_number',
         'password',
         'social_type',
         'is_social',
+        'is_suspended',
         'user_role_id'
     ];
 
