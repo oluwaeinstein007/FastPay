@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\Api\v1\AuthController;
+use App\Http\Controllers\Api\v1\AdminController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -38,16 +39,23 @@ Route::prefix('v1')->group(function () {
         Route::post('/changePassword', [AuthController::class, 'changePassword']);
         Route::post('/logout', [AuthController::class, 'logout']);
 
+        Route::get('/deleteAdmin', [AdminController::class, 'deleteAdmin']);
+
 
         // routes accessible only to SuperAdmin
         Route::group(['middleware' => 'superadmin'], function () {
             //user/admin registration
             Route::post('/createAdminUser', [AuthController::class, 'createAdminUser']);
+            Route::get('/getAdmins', [AdminController::class, 'getAdmins']);
+            Route::get('/suspendAdmin', [AdminController::class, 'suspendAdmin']);
+            Route::get('/unsuspendAdmin', [AdminController::class, 'unsuspendAdmin']);
         });
 
         // routes accessible only to Staff and SuperAdmin
         Route::group(['middleware' => 'staff'], function () {
             //
+            Route::get('/getUsers', [AdminController::class, 'getUsers']);
+            // Route::get('/getAdmins', [AdminController::class, 'getAdmins']);
         });
     });
 });
